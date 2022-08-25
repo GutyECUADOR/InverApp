@@ -22,12 +22,12 @@ export class AppComponent implements OnInit {
     {
       title: 'Mis inversiones',
       url: '/app/tabs/schedule',
-      icon: 'cash'
+      icon: 'bar-chart'
     },
     {
       title: 'Nueva inversión',
       url: '/app/tabs/speakers',
-      icon: 'people'
+      icon: 'diamond'
     }
   ];
   loggedIn = true;
