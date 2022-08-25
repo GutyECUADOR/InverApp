@@ -20,27 +20,17 @@ import { UserData } from './providers/user-data';
 export class AppComponent implements OnInit {
   appPages = [
     {
-      title: 'Schedule',
+      title: 'Mis inversiones',
       url: '/app/tabs/schedule',
-      icon: 'calendar'
+      icon: 'cash'
     },
     {
-      title: 'Speakers',
+      title: 'Nueva inversión',
       url: '/app/tabs/speakers',
       icon: 'people'
-    },
-    {
-      title: 'Map',
-      url: '/app/tabs/map',
-      icon: 'map'
-    },
-    {
-      title: 'About',
-      url: '/app/tabs/about',
-      icon: 'information-circle'
     }
   ];
-  loggedIn = false;
+  loggedIn = true;
   dark = false;
 
   constructor(
