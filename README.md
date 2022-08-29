@@ -1,3 +1,10 @@
+### Reconstruct Project
+1. Run `npm install --force` asegurarse de tener node 16.17 LTS
+2. Run `ionic serve` para ejecutar version web.
+2. Run `ionic capacitor build android` para ejecutar version android, se abrira Android Studio automaticamente.
+
+1. Run `ionic cordova run android --prod`
+
 # Ionic Angular Conference Application
 
 This application is purely a kitchen-sink demo of the Ionic Framework and Angular.

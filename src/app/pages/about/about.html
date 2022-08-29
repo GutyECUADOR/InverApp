@@ -24,26 +24,15 @@
     <h3 class="ion-padding-top ion-padding-start">Acerca de</h3>
 
     <p class="ion-padding-start ion-padding-end">
-      The Ionic Conference is a one-day conference on {{ conferenceDate | date: 'mediumDate' }} featuring talks from the Ionic team. It is focused on Ionic applications being built with Ionic Framework. This includes migrating apps to the latest version of the framework, Angular concepts, Webpack, Sass, and many other technologies used in Ionic 2. Tickets are completely sold out, and we’re expecting more than 1000 developers – making this the largest Ionic conference ever!
+      InversionesApp actualización {{ conferenceDate | date: 'mediumDate' }}.
     </p>
 
-    <h3 class="ion-padding-top ion-padding-start">Details</h3>
+    <h3 class="ion-padding-top ion-padding-start">Detalles de la cuenta</h3>
 
     <ion-list lines="none">
-      <ion-item>
-        <ion-label>
-          Location
-        </ion-label>
-        <ion-select [(ngModel)]="location" [interfaceOptions]="selectOptions">
-          <ion-select-option value="madison">Madison, WI</ion-select-option>
-          <ion-select-option value="austin">Austin, TX</ion-select-option>
-          <ion-select-option value="chicago">Chicago, IL</ion-select-option>
-          <ion-select-option value="seattle">Seattle, WA</ion-select-option>
-        </ion-select>
-      </ion-item>
       <ion-item button="true" id="open-date-input">
         <ion-label>
-          Date
+          Fecha de registro
         </ion-label>
         <ion-text slot="end">{{ conferenceDate | date: 'mediumDate' }}</ion-text>
         <ion-popover id="date-input-popover" trigger="open-date-input" [showBackdrop]="false" side="top" alignment="end">
@@ -54,25 +43,7 @@
       </ion-item>
     </ion-list>
 
-    <h3 class="ion-padding-top ion-padding-start">Internet</h3>
-
-    <ion-list lines="none">
-      <ion-item>
-        <ion-label>
-          Wifi network
-        </ion-label>
-        <ion-label class="ion-text-end">
-          ica{{conferenceDate | date: 'y'}}
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>
-          Password
-        </ion-label>
-        <ion-label class="ion-text-end">
-          makegoodthings
-        </ion-label>
-      </ion-item>
-    </ion-list>
+   
+   
   </div>
 </ion-content>

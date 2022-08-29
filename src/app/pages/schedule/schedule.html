@@ -61,7 +61,7 @@
           <ion-label>
             <h3>{{session.name}}</h3>
             <p>
-              {{session.timeStart}} &mdash; {{session.timeEnd}}: {{session.location}}
+              {{session.timeStart}} &mdash; {{session.location}} &mdash; 30 dias
             </p>
           </ion-label>
         </ion-item>
@@ -79,10 +79,10 @@
   </ion-list>
 
   <ion-list-header [hidden]="shownSessions > 0">
-    No Sessions Found
+    Sin datos
   </ion-list-header>
 
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
+  <!-- <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
     <ion-fab-button>
       <ion-icon name="share-social"></ion-icon>
     </ion-fab-button>
@@ -100,5 +100,5 @@
         <ion-icon name="logo-facebook"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>
-  </ion-fab>
+  </ion-fab> -->
 </ion-content>
