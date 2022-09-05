@@ -13,7 +13,7 @@
     <ion-list>
       <ion-item>
         <ion-label position="stacked" color="primary">Usuario</ion-label>
-        <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off">
+        <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off" required>
         </ion-input>
       </ion-item>
 
@@ -25,7 +25,7 @@
 
       <ion-item>
         <ion-label position="stacked" color="primary">Contraseña</ion-label>
-        <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel">
+        <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
         </ion-input>
       </ion-item>
 
