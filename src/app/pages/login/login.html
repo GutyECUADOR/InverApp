@@ -13,13 +13,13 @@
     <ion-list>
       <ion-item>
         <ion-label position="stacked" color="primary">Usuario</ion-label>
-        <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off" required>
+        <ion-input [(ngModel)]="login.email" name="email" email="true" type="email" #email="ngModel" spellcheck="false" autocapitalize="off" required>
         </ion-input>
       </ion-item>
 
       <ion-text color="danger">
-        <p [hidden]="username.valid || submitted === false" class="ion-padding-start">
-          El usuario es requerida
+        <p [hidden]="email.valid || submitted === false" class="ion-padding-start">
+          El usuario es requerido y debe ser un email válido.
         </p>
       </ion-text>
 
@@ -31,7 +31,7 @@
 
       <ion-text color="danger">
         <p [hidden]="password.valid || submitted === false" class="ion-padding-start">
-          La contraseña es requerida
+          La contraseña es requerida.
         </p>
       </ion-text>
     </ion-list>
