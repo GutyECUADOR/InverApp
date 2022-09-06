@@ -1,6 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, IonList, IonRouterOutlet, LoadingController, ModalController, ToastController, Config } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 import { ConferenceData } from '../../providers/conference-data';
@@ -34,10 +35,17 @@ export class SchedulePage implements OnInit {
     public routerOutlet: IonRouterOutlet,
     public toastCtrl: ToastController,
     public user: UserData,
-    public config: Config
+    public config: Config,
+    public storage: Storage,
   ) { }
 
   ngOnInit() {
+    this.storage.get('hasLoggedIn').then(res => {
+      if (res != true) {
+        this.router.navigateByUrl('/login', { replaceUrl: true });
+      }
+    });
+
     this.updateSchedule();
 
     this.ios = this.config.get('mode') === 'ios';
@@ -136,5 +144,9 @@ export class SchedulePage implements OnInit {
     await loading.present();
     await loading.onWillDismiss();
     fab.close();
+  }
+
+  async getInversiones(){
+   
   }
 }

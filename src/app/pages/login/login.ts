@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { Storage } from '@ionic/storage';
 import { UserData } from '../../providers/user-data';
 
 import { UserOptions } from '../../interfaces/user-options';
@@ -21,6 +21,7 @@ export class LoginPage {
     private authService: AuthService,
     public userData: UserData,
     public router: Router,
+    public storage: Storage,
     public alertCtrl: AlertController
   ) { }
 
@@ -43,12 +44,26 @@ export class LoginPage {
         });
         await alert.present();
       });
-
-    
+    }else{
+      const alert = await this.alertCtrl.create({
+        header: 'Login Fallido',
+        message: `Complete los campos requeridos`,
+        buttons: ['OK'],
+      });
+      await alert.present();
     }
   }
 
   onSignup() {
     this.router.navigateByUrl('/signup');
   }
+
+  ionViewWillEnter() {
+    this.storage.get('hasLoggedIn').then(res => {
+      if (res === true) {
+        this.router.navigateByUrl('/app/tabs/schedule', { replaceUrl: true });
+      }
+    });
+  }
+
 }

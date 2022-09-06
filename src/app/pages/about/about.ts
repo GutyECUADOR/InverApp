@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { UserData } from '../../providers/user-data';
 import { PopoverController } from '@ionic/angular';
 
 import { PopoverPage } from '../about-popover/about-popover';
@@ -12,12 +12,17 @@ import { PopoverPage } from '../about-popover/about-popover';
 export class AboutPage {
   location = 'madison';
   conferenceDate = '2022-08-28';
+  username = '';
 
   selectOptions = {
     header: 'Select a Location'
   };
 
-  constructor(public popoverCtrl: PopoverController) { }
+  constructor(public popoverCtrl: PopoverController,  public userData: UserData) {
+    userData.getUsername().then( username => {
+      this.username = username;
+    });
+   }
 
   async presentPopover(event: Event) {
     const popover = await this.popoverCtrl.create({
