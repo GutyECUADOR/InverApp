@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Nueva inversión',
-      url: '/app/tabs/speakers',
+      url: '/app/tabs/nueva-inversion',
       icon: 'diamond'
     }
   ];

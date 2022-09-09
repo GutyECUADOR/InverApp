@@ -49,6 +49,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'nueva-inversion',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../nueva-inversion/nueva-inversion.module').then(m => m.AboutModule)
+          }
+        ]
+      },
+      {
         path: 'about',
         children: [
           {
