@@ -43,7 +43,7 @@
 
   <ion-list #scheduleList [hidden]="inversiones.length === 0">
     
-      <ion-item-sliding *ngFor="let inversion of inversiones" #slidingItem [attr.track]="'Pendiente' | lowercase">
+      <ion-item-sliding *ngFor="let inversion of inversiones" #slidingItem [attr.track]="inversion.estado | lowercase">
         <ion-item routerLink="/app/tabs/schedule/session/{{inversion.id}}">
           <ion-label>
             <h3>{{inversion.estado | titlecase}}</h3>
