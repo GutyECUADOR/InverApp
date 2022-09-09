@@ -18,13 +18,23 @@ export class InversionService {
     });
   }
 
-  getInversiones():Observable<IResponseInversion[]> {
+  getInversiones():Observable<IResponseInversion> {
     let URL = environment.API_URL + 'api/inversion'
     
     const headers = new HttpHeaders({ 
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.access_token}`
     });
-    return this.http.get<IResponseInversion[]>(URL, {headers});
+    return this.http.get<IResponseInversion>(URL, {headers});
+  }
+
+  getInversion(id: number): Observable<IResponseInversion> {
+    let URL = environment.API_URL + `api/inversion/${id}`
+    
+    const headers = new HttpHeaders({ 
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.access_token}`
+    });
+    return this.http.get<IResponseInversion>(URL, {headers});
   }
 }

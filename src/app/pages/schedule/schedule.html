@@ -17,7 +17,7 @@
       <ion-button *ngIf="!showSearchbar" (click)="getInversiones()">
         <span *ngIf="ios">Actualizar</span>
         <span *ngIf="!ios">
-          <ion-icon slot="icon-only" name="refresh"></ion-icon>
+          <ion-icon slot="icon-only" name="reload-outline"></ion-icon>
         </span>
       </ion-button>
     </ion-buttons>
@@ -64,11 +64,11 @@
         </ion-item>
         <ion-item-options>
           <ion-item-option color="favorite" (click)="addFavorite(slidingItem, session)" *ngIf="segment === 'all'">
-            Favorite
+            <ion-icon slot="icon-only" name="heart"></ion-icon>
           </ion-item-option>
           <ion-item-option color="danger" (click)="removeFavorite(slidingItem, session, 'Remove Favorite')"
             *ngIf="segment === 'favorites'">
-            Remove
+            <ion-icon slot="icon-only" name="refresh"></ion-icon>
           </ion-item-option>
         </ion-item-options>
       </ion-item-sliding>
@@ -76,26 +76,7 @@
   </ion-list>
 
   <ion-list-header [hidden]="shownSessions > 0">
-    Sin datos
+    <img src="assets/img/NoDataFound.png" class="slide-image" />
   </ion-list-header>
 
-  <!-- <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
-    <ion-fab-button>
-      <ion-icon name="share-social"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="top">
-      <ion-fab-button color="vimeo" (click)="openSocial('Vimeo', fab)">
-        <ion-icon name="logo-vimeo"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button color="instagram" (click)="openSocial('Instagram', fab)">
-        <ion-icon name="logo-instagram"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button color="twitter" (click)="openSocial('Twitter', fab)">
-        <ion-icon name="logo-twitter"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button color="facebook" (click)="openSocial('Facebook', fab)">
-        <ion-icon name="logo-facebook"></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
-  </ion-fab> -->
 </ion-content>

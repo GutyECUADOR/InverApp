@@ -7,6 +7,8 @@ import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 import { ConferenceData } from '../../providers/conference-data';
 import { UserData } from '../../providers/user-data';
 
+import { InversionService } from '../../services/inversion.service';
+
 @Component({
   selector: 'page-schedule',
   templateUrl: 'schedule.html',
@@ -25,6 +27,7 @@ export class SchedulePage implements OnInit {
   groups: any = [];
   confDate: string;
   showSearchbar: boolean;
+  inversiones: any = [];
 
   constructor(
     public alertCtrl: AlertController,
@@ -37,6 +40,7 @@ export class SchedulePage implements OnInit {
     public user: UserData,
     public config: Config,
     public storage: Storage,
+    public inversionService: InversionService
   ) { }
 
   ngOnInit() {
@@ -46,9 +50,28 @@ export class SchedulePage implements OnInit {
       }
     });
 
-    this.updateSchedule();
-
     this.ios = this.config.get('mode') === 'ios';
+  }
+
+  ionViewWillEnter() {
+    this.getInversiones();
+  }
+
+  getInversiones(){
+    this.inversionService.getInversiones().subscribe(async inversiones => {
+      this.inversiones = inversiones;
+      console.log(this.inversiones);
+      const toast = await this.toastCtrl.create({
+        header: `${inversiones.message}  `,
+        duration: 3000,
+        buttons: [{
+          text: 'Cerrar',
+          role: 'cancel'
+        }]
+      });
+
+      await toast.present();
+    });
   }
 
   updateSchedule() {
@@ -146,7 +169,5 @@ export class SchedulePage implements OnInit {
     fab.close();
   }
 
-  async getInversiones(){
-   
-  }
+
 }
