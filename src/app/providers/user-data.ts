@@ -29,9 +29,10 @@ export class UserData {
     }
   }
 
-  login(username: string): Promise<any> {
+  login(data: any): Promise<any> {
     return this.storage.set(this.HAS_LOGGED_IN, true).then(() => {
-      this.setUsername(username);
+      this.setUsername(data.user.name);
+      this.setToken(data.access_token);
       return window.dispatchEvent(new CustomEvent('user:login'));
     });
   }
@@ -45,7 +46,7 @@ export class UserData {
 
   logout(): Promise<any> {
     return this.storage.remove(this.HAS_LOGGED_IN).then(() => {
-      return this.storage.remove('username');
+      return this.storage.remove('access_token');
     }).then(() => {
       window.dispatchEvent(new CustomEvent('user:logout'));
     });
@@ -57,6 +58,16 @@ export class UserData {
 
   getUsername(): Promise<string> {
     return this.storage.get('username').then((value) => {
+      return value;
+    });
+  }
+
+  setToken(access_token: string): Promise<any> {
+    return this.storage.set('access_token', access_token);
+  }
+
+  getToken(): Promise<string> {
+    return this.storage.get('access_token').then((value) => {
       return value;
     });
   }

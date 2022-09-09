@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { UserData } from '../../providers/user-data';
 
+import { MenuController } from '@ionic/angular';
+
 import { UserOptions } from '../../interfaces/user-options';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from '../../services/auth.service';
@@ -22,7 +24,8 @@ export class LoginPage {
     public userData: UserData,
     public router: Router,
     public storage: Storage,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    public menu: MenuController,
   ) { }
 
   async onLogin(form: NgForm) {
@@ -32,7 +35,7 @@ export class LoginPage {
       this.authService.loginByEmail(this.login).subscribe( data => {
         console.log(data);
         if (data.access_token) {
-          this.userData.login(this.login.email);
+          this.userData.login(data);
         this.router.navigateByUrl('/app/tabs/schedule');
         }
       }, async error =>{
